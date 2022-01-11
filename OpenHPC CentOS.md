@@ -1,15 +1,12 @@
-﻿
-
-
 
 # OpenHPC con Slurm en CentOS 7
 
 
-## Configuración de Maestro y nodos
+## Configuración de maestro y nodos
 ```sh
-Master
-Compute1
-Compute2
+Master: maestro
+Compute1 (c1): nodo 1
+Compute2 (c2): nodo 2 
 ```
 ```sh
 Hostname: master
@@ -25,8 +22,6 @@ Hostname: c2
 enp0s3: private network 192.168.1.252 MAC 08:00:27:99:b3:5f
 ```
 
-## Ingresar al servidor linux para instalar el sistema
-ssh root@192.168.11.6
 
 ## Preparar para instalar, editar los archivos del host
 ```sh
@@ -34,12 +29,12 @@ vi /etc/hosts
 192.168.1.254 master
 164.115.20.65 build.openhpc.community
 ```
-Disable Firewall.
+Deshabilitar Firewall.
 ```sh
 systemctl disable firewalld
 systemctl stop firewalld
 ```
-Update system.
+Actualizar el sistema
 ```sh
 yum -y update
 yum -y install wget
